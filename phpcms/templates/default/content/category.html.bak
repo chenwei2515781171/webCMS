@@ -1,0 +1,92 @@
+{template "content","header"}
+<!--main-->
+
+<div class="main">
+	<div class="title-img">
+		<img src="" width="100%">
+	</div>
+<script>
+	var imgname="{$catname}";
+	$('.title-img img').src;
+	 switch (imgname) {
+                    case ("我院概况"):
+                        $('.title-img img').attr('src','{IMG_PATH}images/wygk02.png');
+                        break;
+                    case ("科研场所"):
+                        $('.title-img img').attr('src','{IMG_PATH}images/kycs02.png');
+                        break;
+                    case ("技术研发"):
+                        $('.title-img img').attr('src','{IMG_PATH}images/jsyf02.png');
+                        break;
+					case ("孵化服务"):
+                        $('.title-img img').attr('src','{IMG_PATH}images/fhfw02.png');
+                        break;
+					case ("合作联盟"):
+                        $('.title-img img').attr('src','{IMG_PATH}images/hzlm02.png');
+                        break;
+					case ("联系我们"):
+                        $('.title-img img').attr('src','{IMG_PATH}images/lxwm02.png');
+                        break;
+                    default:
+                        $('.title-img img').attr('src','{IMG_PATH}images/wygk02.png');
+                }
+</script>
+	<div class="lm-content">
+		<div class="content-left">
+			<ul>
+				{pc:get sql="select catname,catid from yjy_category where parentid=$catid order by catid"  return="data"}
+					{loop $data $r}
+						<li class="bck1" id="{$r[catid]}" >{$r[catname]}</li>
+					{/loop}
+				{/pc}
+			</ul>
+		</div>
+		<div class="content-right">
+			<ul>
+			{pc:get sql="select catid,catname from yjy_category where parentid=$catid order by catid "  return="data"}
+					{loop $data $r}
+						<li id="{$r[catid]}" >
+						<p class="content-title">{$r[catname]}<span>当前位置：{$catname}-{$r[catname]}</span></p>
+						{pc:get sql="select id from yjy_news where catid=$r[catid]"  return="data"}
+							{loop $data $d}
+							
+								{pc:get sql="select content from yjy_news_data where id=$d[id]"  return="data"}
+									{loop $data $c}
+										{$c[content]}
+									{/loop}
+								{/pc}
+							
+							{/loop}
+						{/pc}
+						</li>
+					{/loop}
+				{/pc}
+			</ul>
+		</div>
+	</div>   
+</div>
+<script type="text/javascript">
+$('.content-left li').first().addClass('bck');
+$('.content-right li').first().show();
+var leftli=$('.content-left li');
+var rightli=$('.content-right li');
+for(var a=0;a<leftli.length;a++){
+	leftli[a].onmouseover=function(){
+		$('.content-left li').removeClass('bck');
+		$(this).addClass('bck');
+	};
+	$(leftli[a]).click(function(){
+		$('.content-right li').hide();
+		var f=$(this).attr("id");
+		for(var b=0;b<rightli.length;b++){
+			var g=$(rightli[b]).attr("id");
+			if(parseInt(f)==parseInt(g)){
+				$(rightli[b]).show();
+			}
+		};
+		
+	})
+}
+
+</script>
+{template "content","footer"}

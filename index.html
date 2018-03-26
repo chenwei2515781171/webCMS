@@ -1,0 +1,533 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=7" />
+<title>PHPCMS演示站</title>
+<meta name="keywords" content="PHPCMS演示站">
+<meta name="description" content="PHPCMS演示站">
+<link href="http://127.0.0.1:81/statics/css/reset.css" rel="stylesheet" type="text/css" />
+<link href="http://127.0.0.1:81/statics/css/default_blue.css" rel="stylesheet" type="text/css" />
+<link href="http://127.0.0.1:81/statics/css/new.css" rel="stylesheet" type="text/css" />
+
+
+
+<script type="text/javascript" src="http://127.0.0.1:81/statics/js/jquery.js"></script>
+<script type="text/javascript" src="http://127.0.0.1:81/statics/js/jquery.min.js"></script>
+<script type="text/javascript" src="http://127.0.0.1:81/statics/js/jquery.sgallery.js"></script>
+<script type="text/javascript" src="http://127.0.0.1:81/statics/js/search_common.js"></script>
+<script type="text/javascript">
+function banner(){	
+	var bn_id = 0;
+	var bn_id2= 1;
+	var speed33=5000;
+	var qhjg = 1;
+    var MyMar33;
+	$("#banner .d1").hide();
+	$("#banner .d1").eq(0).fadeIn("slow");
+	if($("#banner .d1").length>1)
+	{
+		$("#banner_id li").eq(0).addClass("nuw");
+		function Marquee33(){
+			bn_id2 = bn_id+1;
+			if(bn_id2>$("#banner .d1").length-1)
+			{
+				bn_id2 = 0;
+			}
+			$("#banner .d1").eq(bn_id).css("z-index","2");
+			$("#banner .d1").eq(bn_id2).css("z-index","1");
+			$("#banner .d1").eq(bn_id2).show();
+			$("#banner .d1").eq(bn_id).fadeOut("slow");
+			$("#banner_id li").removeClass("nuw");
+			$("#banner_id li").eq(bn_id2).addClass("nuw");
+			bn_id=bn_id2;
+		};
+	
+		MyMar33=setInterval(Marquee33,speed33);
+		
+		$("#banner_id li").click(function(){
+			var bn_id3 = $("#banner_id li").index(this);
+			if(bn_id3!=bn_id&&qhjg==1)
+			{
+				qhjg = 0;
+				$("#banner .d1").eq(bn_id).css("z-index","2");
+				$("#banner .d1").eq(bn_id3).css("z-index","1");
+				$("#banner .d1").eq(bn_id3).show();
+				$("#banner .d1").eq(bn_id).fadeOut("slow",function(){qhjg = 1;});
+				$("#banner_id li").removeClass("nuw");
+				$("#banner_id li").eq(bn_id3).addClass("nuw");
+				bn_id=bn_id3;
+			}
+		})
+		$("#banner_id").hover(
+			function(){
+				clearInterval(MyMar33);
+			}
+			,
+			function(){
+				MyMar33=setInterval(Marquee33,speed33);
+			}
+		)	
+	}
+	else
+	{
+		$("#banner_id").hide();
+	}
+}
+</script>
+
+</head>
+<body>
+
+<div class="header">
+	<div class="logo"><a href="http://127.0.0.1:81/"><img src="http://127.0.0.1:81/statics/images/images/logo.png" /></a></div>
+    <div class="nav-bar">
+    	<map>
+    	        	<ul class="nav-site">
+			<li class="first"><a href="http://127.0.0.1:81"><span>首页</span></a></li>
+						<li><a href="http://127.0.0.1:81/index.php?m=content&c=index&a=lists&catid=10"><span>我院概况</span></a></li>
+						<li><a href="http://127.0.0.1:81/index.php?m=content&c=index&a=lists&catid=11"><span>科研场所</span></a></li>
+						<li><a href="http://127.0.0.1:81/index.php?m=content&c=index&a=lists&catid=12"><span>技术研发</span></a></li>
+						<li><a href="http://127.0.0.1:81/index.php?m=content&c=index&a=lists&catid=13"><span>孵化服务</span></a></li>
+						<li><a href="http://127.0.0.1:81/index.php?m=content&c=index&a=lists&catid=14"><span>合作联盟</span></a></li>
+						<li><a href="http://127.0.0.1:81/index.php?m=content&c=index&a=lists&catid=15"><span>联系我们</span></a></li>
+						<li><a ><img src="http://127.0.0.1:81/statics/images/images/b.png" width="36px"  /></a></li>
+            </ul>
+                </map>
+    </div> 
+</div>
+<script>
+var elem = $('.nav-site li');
+for(var i=0; i<elem.length-1; i++){
+elem[i].onmouseover=function(){
+$(".first a").css("color","#444");
+$(".first").css("border-bottom","none");
+$(this).css("border-bottom","3px solid #3987b9")
+$(this).find("a").css("color","#3987b9");
+}
+ 
+elem[i].onmouseout = function(){
+$(this).css("border-bottom","none")
+$(this).find("a").css("color","#444");
+}
+};
+
+</script><div class="banner" id="banner" >
+	<a href="#" class="d1" style="background:url(http://127.0.0.1:81/statics/images/images/a1.png) center no-repeat;"></a>
+	<a href="#" class="d1" style="background:url(http://127.0.0.1:81/statics/images/images/a2.png) center no-repeat;"></a>
+	<a href="#" class="d1" style="background:url(http://127.0.0.1:81/statics/images/images/a3.png) center no-repeat;"></a>
+	
+</div>
+<div class="dh" >
+	<embed src="http://127.0.0.1:81/statics/images/images/29.swf" width="1440px" height="400px" wmode="transparent">
+</div>
+<!--main-->
+<div class="main">
+	<div class="tzgg">
+		<div class="tzgg1">
+			<div class="tz-ti">
+				<img src="http://127.0.0.1:81/statics/images/images/tzgg3.png" width="148px" />
+			</div>
+			<div class="tz-content">
+									<ul>
+												<li>
+							<span style="margin-right:30px"><img src="http://127.0.0.1:81/statics/images/images/news.png"  /></span>[2017/08/13]<a href="http://127.0.0.1:81/index.php?m=content&c=index&a=show&catid=9&id=16" title="广东省科学技术厅关于中山大学等单位实验动物许可事项的公告" style="margin-left:15px">广东省科学技术厅关于中山大学等单位实验动物许可事项的公告</a>
+						</li>
+												<li>
+							<span style="margin-right:30px"><img src="http://127.0.0.1:81/statics/images/images/news.png"  /></span>[2017/08/13]<a href="http://127.0.0.1:81/index.php?m=content&c=index&a=show&catid=9&id=15" title="方式东方闪电" style="margin-left:15px">方式东方闪电</a>
+						</li>
+												<li>
+							<span style="margin-right:30px"><img src="http://127.0.0.1:81/statics/images/images/news.png"  /></span>[2017/08/04]<a href="http://127.0.0.1:81/index.php?m=content&c=index&a=show&catid=9&id=7" title="孵化还是快点放假" style="margin-left:15px">孵化还是快点放假</a>
+						</li>
+												<li>
+							<span style="margin-right:30px"><img src="http://127.0.0.1:81/statics/images/images/news.png"  /></span>[2017/08/04]<a href="http://127.0.0.1:81/index.php?m=content&c=index&a=show&catid=9&id=6" title="法法算法算法" style="margin-left:15px">法法算法算法</a>
+						</li>
+												<li>
+							<span style="margin-right:30px"><img src="http://127.0.0.1:81/statics/images/images/news.png"  /></span>[2017/08/04]<a href="http://127.0.0.1:81/index.php?m=content&c=index&a=show&catid=9&id=5" title="发斯蒂芬斯蒂芬" style="margin-left:15px">发斯蒂芬斯蒂芬</a>
+						</li>
+												<li>
+							<span style="margin-right:30px"><img src="http://127.0.0.1:81/statics/images/images/news.png"  /></span>[2017/08/03]<a href="http://127.0.0.1:81/index.php?m=content&c=index&a=show&catid=9&id=4" title="赛的积分离开家里上课的法律定价收费客户类速度快哈房间卡闪电发货撒快递费hiU按属地返回酒叟低价佛速度快发斯蒂芬" style="margin-left:15px">赛的积分离开家里上课的法律定价收费客户类速度快哈房间卡闪电发货...</a>
+						</li>
+												<li>
+							<span style="margin-right:30px"><img src="http://127.0.0.1:81/statics/images/images/news.png"  /></span>[2017/08/03]<a href="http://127.0.0.1:81/index.php?m=content&c=index&a=show&catid=9&id=3" title="防守打法科技局蓝色大海分类" style="margin-left:15px">防守打法科技局蓝色大海分类</a>
+						</li>
+												<li>
+							<span style="margin-right:30px"><img src="http://127.0.0.1:81/statics/images/images/news.png"  /></span>[2017/08/03]<a href="http://127.0.0.1:81/index.php?m=content&c=index&a=show&catid=9&id=2" title="发生的撒娇女烦恼斯蒂芬斯蒂芬" style="margin-left:15px">发生的撒娇女烦恼斯蒂芬斯蒂芬</a>
+						</li>
+												<li>
+							<span style="margin-right:30px"><img src="http://127.0.0.1:81/statics/images/images/news.png"  /></span>[2017/08/03]<a href="http://127.0.0.1:81/index.php?m=content&c=index&a=show&catid=9&id=1" title="暗示对话上看见爱上大事发生多个地方挺好规范化电视剧啊" style="margin-left:15px">暗示对话上看见爱上大事发生多个地方挺好规范化电视剧啊</a>
+						</li>
+						 
+					</ul>
+				 
+			</div>
+			<div class="tz-control">
+				<img src="http://127.0.0.1:81/statics/images/images/tzgg5.png" width="45px" id="top" style="margin-bottom:12px"/>
+				<img src="http://127.0.0.1:81/statics/images/images/tzgg4.png" width="45px" id="next"/>
+			</div>
+		</div>
+	</div>
+	<div class="xx">
+		<div class="slide">
+            <div class="FocusPic">
+                        	<div class="content" id="main-slide">
+                    <div class="changeDiv">  
+                                            <a href="http://127.0.0.1:81/index.php?m=content&c=index&a=show&catid=9&id=7" title="孵化还是快点放假"><img src="http://127.0.0.1:81/install_package/uploadfile/2017/0804/20170804115851321.jpg" alt="孵化还是快点放假" width="360" height="300" /></a>
+                                            <a href="http://127.0.0.1:81/index.php?m=content&c=index&a=show&catid=9&id=6" title="法法算法算法"><img src="http://127.0.0.1:81/install_package/uploadfile/2017/0804/20170804115851321.jpg" alt="法法算法算法" width="360" height="300" /></a>
+                                            <a href="http://127.0.0.1:81/index.php?m=content&c=index&a=show&catid=9&id=5" title="发斯蒂芬斯蒂芬"><img src="http://127.0.0.1:81/install_package/uploadfile/2017/0804/20170804115851321.jpg" alt="发斯蒂芬斯蒂芬" width="360" height="300" /></a>
+                                            <a href="http://127.0.0.1:81/index.php?m=content&c=index&a=show&catid=9&id=4" title="赛的积分离开家里..."><img src="http://127.0.0.1:81/install_package/uploadfile/2017/0804/20170804115851321.jpg" alt="赛的积分离开家里上课的法律定价收费客户类速度快哈房间卡闪电发货撒快递费hiU按属地返回酒叟低价佛速度快发斯蒂芬" width="360" height="300" /></a>
+                                            <a href="http://127.0.0.1:81/index.php?m=content&c=index&a=show&catid=9&id=3" title="防守打法科技局蓝..."><img src="http://127.0.0.1:81/install_package/uploadfile/2017/0804/20170804115851321.jpg" alt="防守打法科技局蓝色大海分类" width="360" height="300" /></a>
+                                        </div>
+                </div>
+                        </div>
+			<div class="yw">
+				<div class="xw1">
+																	<a href="http://127.0.0.1:81/index.php?m=content&c=index&a=show&catid=9&id=7" title="孵化还是快点放假">
+							<p class="p1">孵化还是快点放假</p>
+						</a>
+							<p class="p2">发地方撒地方，福建省款到发货鸡上课。上岛咖啡还可大数据付货款，斯蒂芬斯蒂芬俯拾地芥付扩扩扩扩扩扩扩是多久发货开始点击发货速度副书记的开发科技时代华发商...<a href="http://127.0.0.1:81/index.php?m=content&c=index&a=show&catid=9&id=7">[详细]</a></p>
+															</div>
+				<div class="jqyw">
+										<ul >
+												<li>
+							<span><img src="http://127.0.0.1:81/statics/images/images/news.png"  /></span>[2017/08/04]
+							<a href="http://127.0.0.1:81/index.php?m=content&c=index&a=show&catid=9&id=6" title="法法算法算法">法法算法算法</a>
+						</li>
+												<li>
+							<span><img src="http://127.0.0.1:81/statics/images/images/news.png"  /></span>[2017/08/04]
+							<a href="http://127.0.0.1:81/index.php?m=content&c=index&a=show&catid=9&id=5" title="发斯蒂芬斯蒂芬">发斯蒂芬斯蒂芬</a>
+						</li>
+												<li>
+							<span><img src="http://127.0.0.1:81/statics/images/images/news.png"  /></span>[2017/08/03]
+							<a href="http://127.0.0.1:81/index.php?m=content&c=index&a=show&catid=9&id=4" title="赛的积分离开家里上课的法律定价收费客户类速度快哈房间卡闪电发货撒快递费hiU按属地返回酒叟低价佛速度快发斯蒂芬">赛的积分离开家里上课的法律定价收费客户类速度快哈房...</a>
+						</li>
+												<li>
+							<span><img src="http://127.0.0.1:81/statics/images/images/news.png"  /></span>[2017/08/03]
+							<a href="http://127.0.0.1:81/index.php?m=content&c=index&a=show&catid=9&id=3" title="防守打法科技局蓝色大海分类">防守打法科技局蓝色大海分类</a>
+						</li>
+												<li>
+							<span><img src="http://127.0.0.1:81/statics/images/images/news.png"  /></span>[2017/08/03]
+							<a href="http://127.0.0.1:81/index.php?m=content&c=index&a=show&catid=9&id=2" title="发生的撒娇女烦恼斯蒂芬斯蒂芬">发生的撒娇女烦恼斯蒂芬斯蒂芬</a>
+						</li>
+												<li>
+							<span><img src="http://127.0.0.1:81/statics/images/images/news.png"  /></span>[2017/08/03]
+							<a href="http://127.0.0.1:81/index.php?m=content&c=index&a=show&catid=9&id=1" title="暗示对话上看见爱上大事发生多个地方挺好规范化电视剧啊">暗示对话上看见爱上大事发生多个地方挺好规范化电视剧啊</a>
+						</li>
+											</ul>
+									</div>
+			</div>
+		</div>
+	</div>
+	<div class="for4"> 
+		<div class="for41">
+			<div class="title1">
+				<div class="lm">
+										<ul>
+													<li id="17">
+							我院新闻						</li>
+													<li id="18">
+							科研动态						</li>
+													<li id="19">
+							产业动态						</li>
+													<li id="20">
+							政策扶持						</li>
+																		</ul>
+				</div>
+				<div class="zx">
+					<a href="http://127.0.0.1:81/index.php?m=content&c=index&a=lists&catid=9"><img src="http://127.0.0.1:81/statics/images/images/zx07.png"  /></a>
+				</div>
+			</div>
+			<div class="for42">
+				<div class="for42-content show 17">
+					<div class="left">
+						<ul>
+							<li>01</li>
+							<li>02</li>
+							<li>03</li>
+							<li>04</li>
+							<li>05</li>
+						</ul>
+					</div>
+					<div class="right">
+												<ul>
+														<li>
+								<img src="http://127.0.0.1:81/install_package/uploadfile/2017/0804/20170804115851321.jpg" alt="大家好" width="830" height="400" />
+								<div class="content-top">
+									<p class=p4>2017-08-06</p>
+									<p class=p5>大家好</p>
+									<p class=p6>大萨达所</a></p>
+								</div>
+								<div class="href">
+									<a href="http://127.0.0.1:81/index.php?m=content&c=index&a=show&catid=17&id=9"><img src="http://127.0.0.1:81/statics/images/images/c11.png"  /></a>
+								</div>
+							</li>
+														<li>
+								<img src="http://127.0.0.1:81/install_package/uploadfile/2017/0804/20170804115851321.jpg" alt="萨队U暗示对安徽 驾驶的空间哈市科技撒谎地黄大萨达和啊搜队阿索奥斯对哦啊收到你看你上课哦啊死对啊搜你" width="830" height="400" />
+								<div class="content-top">
+									<p class=p4>2017-08-06</p>
+									<p class=p5>萨队U暗示对安徽 驾驶的空间哈...</p>
+									<p class=p6>萨队U暗示对安徽 驾驶的空间哈市科技撒谎地黄大萨达和啊搜队阿索奥斯对哦啊收到你看你上课哦啊死对啊搜你</a></p>
+								</div>
+								<div class="href">
+									<a href="http://127.0.0.1:81/index.php?m=content&c=index&a=show&catid=17&id=8"><img src="http://127.0.0.1:81/statics/images/images/c11.png"  /></a>
+								</div>
+							</li>
+							 
+						</ul>
+						 
+					</div>
+				</div>
+				<div class="for42-content 18" >
+					<div class="left">
+						<ul>
+							<li>01</li>
+							<li>02</li>
+							<li>03</li>
+							<li>04</li>
+							<li>05</li>
+						</ul>
+					</div>
+					<div class="right">
+												<ul>
+														<li>
+								<img src="http://127.0.0.1:81/install_package/uploadfile/2017/0804/20170804115851321.jpg" alt="打碎勾兑ASI" width="830" height="400" />
+								<div class="content-top">
+									<p class=p4>2017-08-10</p>
+									<p class=p5>打碎勾兑ASI</p>
+									<p class=p6>A实打实地方</a></p>
+								</div>
+								<div class="href">
+									<a href="http://127.0.0.1:81/index.php?m=content&c=index&a=show&catid=18&id=13"><img src="http://127.0.0.1:81/statics/images/images/c11.png"  /></a>
+								</div>
+							</li>
+							 
+						</ul>
+						 
+					</div>
+				</div>
+				<div class="for42-content 19" >
+					<div class="left">
+						<ul>
+							<li>01</li>
+							<li>02</li>
+							<li>03</li>
+							<li>04</li>
+							<li>05</li>
+						</ul>
+					</div>
+					<div class="right">
+												<ul>
+														<li>
+								<img src="http://127.0.0.1:81/install_package/uploadfile/2017/0804/20170804115851321.jpg" alt="产业动态奥术大师" width="830" height="400" />
+								<div class="content-top">
+									<p class=p4>2017-08-10</p>
+									<p class=p5>产业动态奥术大师</p>
+									<p class=p6>产业动态奥术大师</a></p>
+								</div>
+								<div class="href">
+									<a href="http://127.0.0.1:81/index.php?m=content&c=index&a=show&catid=19&id=14"><img src="http://127.0.0.1:81/statics/images/images/c11.png"  /></a>
+								</div>
+							</li>
+							 
+						</ul>
+						 
+					</div>
+				</div>
+				<div class="for42-content 20">
+					<div class="left">
+						<ul>
+							<li>01</li>
+							<li>02</li>
+							<li>03</li>
+							<li>04</li>
+							<li>05</li>
+						</ul>
+					</div>
+					<div class="right">
+												<ul>
+							 
+						</ul>
+						 
+					</div>
+				</div>
+				
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+<div class="fhfw">
+	<div class="fhfw1">
+		<div class="title2">
+			<div class="zx1">
+				<a href="http://127.0.0.1:81/index.php?m=content&c=index&a=lists&catid=13"><img src="http://127.0.0.1:81/statics/images/images/fhfw11.png"  /></a>
+			</div>
+		</div>
+		<div class="fhfw4">
+			<ul>
+				<li><a href="http://127.0.0.1:81/index.php?m=content&c=index&a=lists&catid=13"><img src="http://127.0.0.1:81/statics/images/images/fhfw10.png"  /><img class="img1"  src="http://127.0.0.1:81/statics/images/images/fhfw103.png"  /></a></li>
+				<li><a href="http://127.0.0.1:81/index.php?m=content&c=index&a=lists&catid=13"><img src="http://127.0.0.1:81/statics/images/images/fhfw12.png"  /><img class="img1"  src="http://127.0.0.1:81/statics/images/images/fhfw105.png"  /></a></li>
+				<li><a href="http://127.0.0.1:81/index.php?m=content&c=index&a=lists&catid=13"><img src="http://127.0.0.1:81/statics/images/images/fhfw14.png"  /><img class="img1"  src="http://127.0.0.1:81/statics/images/images/fhfw107.png"  /></a></li> 
+				<li><a href="http://127.0.0.1:81/index.php?m=content&c=index&a=lists&catid=13"><img src="http://127.0.0.1:81/statics/images/images/fhfw16.png"  /><img class="img1"  src="http://127.0.0.1:81/statics/images/images/fhfw109.png"  /></a></li>
+			</ul>
+		
+		</div>
+	</div>
+</div>
+<script type="text/javascript"> 
+banner();
+//通知公告点击事件
+var tzlist=$('.tz-content li');
+for(var t1=0;t1<3;t1++){
+	$(tzlist[t1]).css('display','block');
+}
+var top1=3;
+$('#next').click(function(){
+  var next=top1+3;
+  if(next>tzlist.length){
+	  alert("已经是最后一条！")
+  }else{
+	  for(var t2=top1,t21=1;t2<next;t2++,t21=t21+2){
+			$(tzlist[t2]).css('display','block');
+			$(tzlist[t2-t21]).css('display','none');
+			top1=top1+1;	
+	  };
+  };
+});
+
+$('#top').click(function(){
+  var next=top1-3;
+  if(next==0){
+	alert("已经是第一条！")
+  }else{
+		for(var t2=next,t21=next-3;t2<top1,t21<next;t2++,t21++){
+		$(tzlist[t2]).css('display','none');
+		$(tzlist[t21]).css('display','block');
+		top1=top1-1;	  
+	  };
+  };
+});
+
+//焦点图
+
+$(function(){
+	new slide("#main-slide","cur",360,300,1);//焦点图
+	new SwapTab(".SwapTab","span",".tab-content","ul","fb");//排行TAB
+});
+
+$(".lm li").first().addClass('li-first');
+var b=$('.lm li');
+var can=17;
+action();
+for(var j=0; j<b.length; j++){
+	$(b[j]).click(function(){
+		$(".lm li").removeClass('li-first');
+		$(this).addClass('li-first');
+		var f=$(this).attr("id");
+		$('.for42-content').hide();
+		$('.'+f).css('display','block');
+		can=f;
+		action(can);
+		
+	});
+};
+function action(){	
+$('.'+can+' .left li').first().addClass('contentsize');
+$("."+can+" .left li").first().append('<div class="sanjiao"></div>');
+$("."+can+' .right li').hide();
+$("."+can+" .right li").first().show();
+var c=$("."+can+' .left li');
+for(var h=0; h<c.length; h++){
+	c[h].onmouseover=function(){
+		$("."+can+' .sanjiao').remove();
+		$("."+can+' .left li').removeClass('contentsize');
+		$(this).addClass('contentsize');
+		$(this).append('<div class="sanjiao"></div>');
+		var p=$(this).text();
+		$("."+can+' .right li').hide();
+		var d=$("."+can+' .right li');
+		for(var g=0;g<5; g++){
+			if(p=="01"){
+				$(d[0]).show();
+			};
+			if(p=="02"){
+				$(d[1]).show();
+			};
+			if(p=="03"){
+				$(d[2]).show();
+			};
+			if(p=="04"){
+				$(d[3]).show();
+			};
+			if(p=="05"){
+				$(d[4]).show();
+			};
+		};
+
+	};
+};
+}
+
+var img=$('.fhfw4 li');
+for(var p=0;p<img.length;p++){
+	img[p].onmouseover=function(){
+		$(this).find('img').hide();
+		$(this).find('.img1').show();
+	};
+	img[p].onmouseout = function(){
+		$(this).find('img').show();
+		$(this).find('.img1').hide();
+}
+}
+</script>
+<div class="footer">
+	<div class="footer1">
+		<div class="db">
+			<img src="http://127.0.0.1:81/statics/images/images/db23.png"  />
+		</div>
+		<div class="hzhb">
+			<p>合作伙伴</p>
+			
+		<ul>
+			<li><a href="http://www.sysu.edu.cn/2012/cn/index.htm">中山大学</a></li>
+			<li><a href="http://www.zdmicro.com/">广州中大微电子有限公司</a></li>
+			<li><a href="http://www.sdjri.com/index.asp">中山大学卡内基梅隆大学国际联合研究院</a></li>	
+			<li><a href="http://www.sysu-hd.com/">中山大学花都产业科技研究院</a></li>
+			<li><a href="http://alumni.edaao.sysu.edu.cn/xy/home.do?method=index">中大校友总会</a></li>
+		</ul>
+
+
+
+
+		</div>
+		<div class="lxfs">
+			<div class="lxfs-left">
+				<p>联系方式</p>
+				<ul>
+					<li><img src="http://127.0.0.1:81/statics/images/images/lxfs11.png"  />全国服务热线：020-29067318</li>
+					<li><img src="http://127.0.0.1:81/statics/images/images/lxfs13.png"  />邮编：510800</li>
+					<li><img src="http://127.0.0.1:81/statics/images/images/lxfs19.png"  />传真：28600901</li>
+					<li><img src="http://127.0.0.1:81/statics/images/images/lxfs17.png"  />地址：广州市花都区天贵路88号科技局6楼<p>广州大学城中一路60号</p></li>
+				</ul>
+			</div>
+			<div class="lxfs-right">
+				<img src="http://127.0.0.1:81/statics/images/images/weixin27.png"  style="padding-top:10px"/>
+				<img src="http://127.0.0.1:81/statics/images/images/rwm.jpg" width="150" style="padding-top:20px" />
+			</div>
+		</div>
+   </div>
+
+</div>
+<script type="text/javascript">
+
+$(".db img").click(function(){
+  $("body,html").animate({
+            scrollTop: 0
+        }, 600);
+        return false;
+});
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<div id="footer">
+	<div class="footer1">
+		<div class="db">
+			<img src="{IMG_PATH}images/db23.png"  />
+		</div>
+   </div>
+{pc:content action="category" catid="1" num="15" siteid="$siteid" order="listorder ASC"}
+{loop $data $r}
+<a href="{$r[url]}" target="_blank">{$r[catname]}</a> |  
+{/loop}
+{/pc}
+<a href="{APP_PATH}index.php?m=link" target="_blank">友情链接</a>
+
+<p class="cp">Powered by <strong><a href="http://www.phpcms.cn" target="_blank">PHPCMS</a></strong> <em>v9</em> &copy; {date('Y', SYS_TIME)} <img src="{IMG_PATH}copyright.gif"/>
+</p>
+</div>
+</body>
+</html>

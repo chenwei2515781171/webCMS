@@ -1,0 +1,19 @@
+<?php
+
+return array (
+	'default' => array (
+		'hostname' => '59.188.235.11',
+		'port' => 3306,
+		'database' => 'gzsmartcity',
+		'username' => 'gzsmartcity_f',
+		'password' => 'yanjiuyuan',
+		'tablepre' => 'yjy_',
+		'charset' => 'utf8',
+		'type' => 'mysql',
+		'debug' => true,
+		'pconnect' => 0,
+		'autoconnect' => 0
+		),
+);
+
+?>

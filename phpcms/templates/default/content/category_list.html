@@ -1,0 +1,46 @@
+{template "content","header"}
+<!--main-->
+<div class="main">
+	<div class="col-left" style="margin-left:5px">
+		<div class="list1-left" style="width:200px;border:1px solid #3ebdf0;position:absolute;top:10px;left:0;">
+			<div class="mulu" style="width:200px;height:30px;background:url({IMG_PATH}a_bg.png);background-repeat: repeat-x;margin-bottom:6px">
+					{pc:get sql="select catname from yjy_category where catid=$catid"  return="data"}
+						{loop $data $r}
+							<p style="font-size: 15px;font-weight: bold;color: #fff;padding-top: 3px;padding-left: 10px;">{$r[catname]}</p>
+						{/loop}
+					{/pc}		
+			</div>
+			<ul>
+			{pc:get sql="select catname,url from yjy_category where parentid=$catid order by catid"  return="data"}
+				{loop $data $r}
+					<li style="padding-top: 3px;padding-left: 10px;border-bottom:1px dotted #3ebdf0;margin:0 6px 6px 6px"><a href="{$r[url]}" style="font-size: 15px;font-weight: bold;color: #0255a3;text-decoration:none"><img src="{IMG_PATH}arrow.png" style="padding-right:10px"/>{$r[catname]}</a></li>
+				{/loop}
+			{/pc}		
+			</ul>
+		</div>
+		<div class="list1-right" style="width:810px;background:url(http://localhost/install_package/statics/images/y.png);background-repeat: no-repeat;margin:10px 0 0 207px;border:1px solid #3ebdf0;overflow:hidden;min-height:250px">
+			<div class="list1-bt" style="width:800px;height:30px;position:relative;margin-bottom:10px">
+				<p style="font-size: 15px;font-weight: bold;color: #fff;padding-top: 3px;padding-left: 10px;">
+					{pc:get sql="select catname from yjy_category where catid=$catid"  return="data"}
+						{loop $data $r}
+							{$r[catname]}
+						{/loop}
+					{/pc}
+				</p>
+				<div class="wz" style="position:absolute;top:5px;right:10px">
+					<span style="color:#8f9090">当前位置：</span><a href="{siteurl($siteid)}"><img src="{IMG_PATH}home.png"/>首页</a><span> > </span>{catpos($catid)}
+				</div>
+			</div>
+			{pc:content action="lists" catid="$catid" num="15" order="id DESC" page="$page"}
+			<ul class="list lh24 f14">
+				{loop $data $r}
+				<li style="height:25px;border-bottom:1px dotted #3ebdf0;padding:6px;margin:0 6px 0 6px"><span class="rt">{date('Y-m-d H:i:s',$r[inputtime])}</span>·<a href="{$r[url]}" target="_blank"{title_style($r[style])}>{$r[title]}</a></li>
+				
+				{/loop}
+			</ul>
+			<div id="pages" class="text-c">{$pages}</div>
+			{/pc}
+		</div>
+  </div>
+</div>
+{template "content","footer"}
